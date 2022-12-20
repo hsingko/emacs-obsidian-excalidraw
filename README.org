@@ -8,13 +8,14 @@ Need obsidian-excalidraw plugin installed, and set =Auto Export to svg=
 * Installation
 ** Manually Install
 #+begin_src emacs-lisp :tangle yes
-(add-to-list 'load-path "<path-to-repo>")
+(add-to-list 'load-path "[path-to-repo]")
 (require 'emacs-obsidian-excalidraw)
 #+end_src
 * Configurations
 #+begin_src emacs-lisp :tangle yes
 (setq emacs-obsidian-excalidraw-vault "[excalidraw vault name]")
 (setq emacs-obsidian-excalidraw-vault-dir "[excalidraw file directory]")
+(setq emacs-obsidian-excalidraw-image-format "png") ;; you should enable correspond format auto export in excalidraw
 #+end_src
 * Usage
 + =emacs-obsidian-excaliraw-create= will create a excalidraw file in vault, then auto open in obsidian
@@ -23,8 +24,10 @@ Need obsidian-excalidraw plugin installed, and set =Auto Export to svg=
 + if you want to edit the image, toggle inline image again to display origin link, then =M-x emacs-obsidian-excalidraw-open-at-point= (will improve this later)
   
 * Development todo list
-+ [ ] add png support
++ [X] add png support
 + [ ] add markdown file link support
++ [ ] auto switch light/dark theme
++ [ ] auto redisplay image while file changed
 + [ ] open excalidraw directly without toggle link first
 + [ ] check multi-platform support: windows, mac
 + [ ] support different excalidraw file directory other than root in obsidian

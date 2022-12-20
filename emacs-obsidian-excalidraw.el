@@ -33,8 +33,12 @@
 (defcustom emacs-obsidian-excalidraw-vault "excalidraw"
   "obsidian valut name contains excalidraw files"
   :type 'string
-  :group 'emacs-obsidian-excalidraw
-  )
+  :group 'emacs-obsidian-excalidraw)
+
+(defcustom emacs-obsidian-excalidraw-image-format "svg"
+  "obsidian-exlicalidraw export image format, png or svg, default svg"
+  :type 'string
+  :group 'emacs-obsidian-excalidraw)
 
 (defcustom emacs-obsidian-excalidraw-template-file (when load-file-name
 						     (concat (file-name-directory load-file-name)
@@ -59,7 +63,7 @@
 		 (format "%s.excalidraw.md" name)
 		 emacs-obsidian-excalidraw-vault-dir))
 	(imgfile (expand-file-name
-		  (format "%s.excalidraw.svg" name)
+		  (format "%s.excalidraw.%s" name emacs-obsidian-excalidraw-image-format)
 		  emacs-obsidian-excalidraw-vault-dir))
 	(oblink (format "obsidian://open?vault=%s&file=%s.excalidraw.md" emacs-obsidian-excalidraw-vault name))
 	)

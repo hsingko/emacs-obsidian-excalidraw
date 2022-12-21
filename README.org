@@ -2,7 +2,7 @@
 Simple Plugin provides a bridge between emacs and [[https://github.com/zsviczian/obsidian-excalidraw-plugin][obsidian-exlicalidraw]].
 
 * Requirements
-Need obsidian-excalidraw plugin installed, and set =Auto Export to svg= 
+Need obsidian-excalidraw plugin installed, and set =Auto Export to svg(or png)= 
 [[images/Screenshot.png]]
 
 * Installation
@@ -20,12 +20,12 @@ Need obsidian-excalidraw plugin installed, and set =Auto Export to svg=
 * Usage
 + =emacs-obsidian-excaliraw-create= will create a excalidraw file in vault, then auto open in obsidian
 + after finishing your drawing in obsidian, =Ctrl S= to trigger auto export
-+ =M-x org-toggle-inline-images= will display your image
++ =M-x org-toggle-inline-images= or =M-x markdown-toggle-inline-images= will display your image
 + if you want to edit the image, toggle inline image again to display origin link, then =M-x emacs-obsidian-excalidraw-open-at-point= (will improve this later)
   
 * Development todo list
 + [X] add png support
-+ [ ] add markdown file link support
++ [X] add markdown file link support
 + [ ] auto switch light/dark theme
 + [ ] auto redisplay image while file changed
 + [ ] open excalidraw directly without toggle link first

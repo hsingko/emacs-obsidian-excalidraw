@@ -68,9 +68,13 @@
 	(oblink (format "obsidian://open?vault=%s&file=%s.excalidraw.md" emacs-obsidian-excalidraw-vault name))
 	)
     (copy-file emacs-obsidian-excalidraw-template-file exfile)
-    (insert
-     (format "[[file:%s]]" imgfile))
-    (browse-url-xdg-open oblink)))
+    (cond ((derived-mode-p 'org-mode)
+	   (insert (format "[[file:%s]]" imgfile)))
+	  ((derived-mode-p 'markdown-mode)
+	   (insert (format "![](%s)" imgfile)))
+	  (t
+	   (insert imgfile)))
+	  (browse-url-xdg-open oblink)))
 
 ;;; autoload
 (defun emacs-obsidian-excalidraw-open-at-point ()

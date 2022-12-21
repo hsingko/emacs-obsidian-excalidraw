@@ -1,6 +1,8 @@
 * Introduction
 Simple Plugin provides a bridge between emacs and [[https://github.com/zsviczian/obsidian-excalidraw-plugin][obsidian-exlicalidraw]], works both in ~orgmode~ and ~markdown~.
 
+https://user-images.githubusercontent.com/74039541/208917288-cec40fcb-1555-4ab8-8af3-9f5496795cbd.mp4
+
 * Requirements
 Need obsidian-excalidraw plugin installed, and set =Auto Export to svg(or png)= 
 [[images/Screenshot.png]]

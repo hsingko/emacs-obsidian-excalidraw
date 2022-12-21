@@ -21,14 +21,14 @@ Need obsidian-excalidraw plugin installed, and set =Auto Export to svg(or png)=
 + =emacs-obsidian-excaliraw-create= will create a excalidraw file in vault, then auto open in obsidian
 + after finishing your drawing in obsidian, =Ctrl S= to trigger auto export
 + =M-x org-toggle-inline-images= or =M-x markdown-toggle-inline-images= will display your image
-+ if you want to edit the image, toggle inline image again to display origin link, then =M-x emacs-obsidian-excalidraw-open-at-point= (will improve this later)
++ if you want to edit the image, click on the drawing(or raw link), then =M-x emacs-obsidian-excalidraw-open-at-point=
   
 * Development todo list
 + [X] add png support
 + [X] add markdown file link support
 + [X] check multi-platform support: windows, mac
   + since using ~browse-url~ instead of ~browse-url-xdg-open~ to invoke obsidian, this methods should works cross platform
++ [X] open excalidraw directly without toggle link first
 + [ ] auto switch light/dark theme
 + [ ] auto redisplay image while file changed
-+ [ ] open excalidraw directly without toggle link first
 + [ ] support different excalidraw file directory other than root in obsidian

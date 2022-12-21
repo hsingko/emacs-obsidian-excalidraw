@@ -53,6 +53,25 @@
   :group 'emacs-obsidian-excalidraw
   )
 
+(defun emacs-obsidian-excalidraw-get-link-at-point-raw ()
+  (if (derived-mode-p 'markdown-mode)
+		   (markdown-link-url)
+    (thing-at-point 'url t)))
+
+(defun emacs-obsidian-excalidraw--get-link-at-point ()
+  (let ((raw-link (emacs-obsidian-excalidraw-get-link-at-point-raw)))
+    (if raw-link
+	raw-link
+      (cond ((derived-mode-p 'markdown-mode)
+	     (plist-get (cdr
+			 (car (get-char-property-and-overlay (point) 'display)))
+			:file))
+	    ((derived-mode-p 'org-mode)
+	     (plist-get (car (get-char-property-and-overlay (point) 'htmlize-link))  :uri)) 
+	    (t
+	     "")))))
+    
+
 
 ;;; ###
 ;;; autoload
@@ -80,9 +99,7 @@
 (defun emacs-obsidian-excalidraw-open-at-point ()
   "open exsiting excalidraw file"
   (interactive)
-  (let* ((link (if (derived-mode-p 'markdown-mode)
-		   (markdown-link-url)
-		 (thing-at-point 'url t)))
+  (let* ((link (emacs-obsidian-excalidraw--get-link-at-point))
 	 (name (file-name-sans-extension (file-name-base link))))
     (browse-url
      (format "obsidian://open?vault=%s&file=%s.excalidraw.md" emacs-obsidian-excalidraw-vault name))))

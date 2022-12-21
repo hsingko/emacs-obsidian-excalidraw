@@ -74,15 +74,17 @@
 	   (insert (format "![](%s)" imgfile)))
 	  (t
 	   (insert imgfile)))
-	  (browse-url-xdg-open oblink)))
+	  (browse-url oblink)))
 
 ;;; autoload
 (defun emacs-obsidian-excalidraw-open-at-point ()
   "open exsiting excalidraw file"
   (interactive)
-  (let* ((link (thing-at-point 'url t))
-	 (name (file-name-base link)))
-    (browse-url-xdg-open
+  (let* ((link (if (derived-mode-p 'markdown-mode)
+		   (markdown-link-url)
+		 (thing-at-point 'url t)))
+	 (name (file-name-sans-extension (file-name-base link))))
+    (browse-url
      (format "obsidian://open?vault=%s&file=%s.excalidraw.md" emacs-obsidian-excalidraw-vault name))))
 
 (provide 'emacs-obsidian-excalidraw)

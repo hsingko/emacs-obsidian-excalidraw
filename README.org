@@ -1,5 +1,5 @@
 * Introduction
-Simple Plugin provides a bridge between emacs and [[https://github.com/zsviczian/obsidian-excalidraw-plugin][obsidian-exlicalidraw]].
+Simple Plugin provides a bridge between emacs and [[https://github.com/zsviczian/obsidian-excalidraw-plugin][obsidian-exlicalidraw]], works both in ~orgmode~ and ~markdown~.
 
 * Requirements
 Need obsidian-excalidraw plugin installed, and set =Auto Export to svg(or png)= 
@@ -26,8 +26,9 @@ Need obsidian-excalidraw plugin installed, and set =Auto Export to svg(or png)=
 * Development todo list
 + [X] add png support
 + [X] add markdown file link support
++ [X] check multi-platform support: windows, mac
+  + since using ~browse-url~ instead of ~browse-url-xdg-open~ to invoke obsidian, this methods should works cross platform
 + [ ] auto switch light/dark theme
 + [ ] auto redisplay image while file changed
 + [ ] open excalidraw directly without toggle link first
-+ [ ] check multi-platform support: windows, mac
 + [ ] support different excalidraw file directory other than root in obsidian
